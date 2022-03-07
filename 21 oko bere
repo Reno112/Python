@@ -12,6 +12,8 @@ while bodyHrac <= 21:
         bodyHrac = bodyHrac + vylosovano
         print('Byla vylosována karta s', vylosovano, 'body.')
         print('Nyní máš', bodyHrac, 'bodů.')
-    else:
+    elif odpoved == 'ne':
         print('Dosáhl jsi celkem:', bodyHrac)
         break
+    else:
+        print('Odpovídej jen Ano, nebo NE!')
