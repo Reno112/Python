@@ -1,0 +1,17 @@
+from random import randrange
+
+bodyHrac = 0
+print('Cílem je dosáhnout maximálně 21 bodů, NE více!')
+print('Nyní máš', bodyHrac, 'bodů.')
+
+while bodyHrac <= 21:
+    pokracovat = input('Chceš hrát dál? "ano / ne": ')
+    odpoved = pokracovat.lower()
+    if odpoved == 'ano':
+        vylosovano = randrange(0, 11)
+        bodyHrac = bodyHrac + vylosovano
+        print('Byla vylosována karta s', vylosovano, 'body.')
+        print('Nyní máš', bodyHrac, 'bodů.')
+    else:
+        print('Dosáhl jsi celkem:', bodyHrac)
+        break
