@@ -1,9 +1,7 @@
 import random
 
-moznostiPocitac = ['kámen', 'nůžky', 'papír']
 bodyHrac = 0
 bodyPocitac = 0
-pocetBodu = 111
 
 print('Kámen, nůžky, papír, to znáš, tak jdeme hrát.')
 pocetBodu = int(input('Do kolika bodů chceš hrát? '))
@@ -11,6 +9,7 @@ pocetBodu = int(input('Do kolika bodů chceš hrát? '))
 while bodyHrac <= pocetBodu or bodyPocitac <= pocetBodu:
     if bodyHrac == pocetBodu:
         print('VYHRÁL JSI HRU! GRATULUJI!')
+        quit()
     elif bodyPocitac == pocetBodu:
         print('Vyhrál počítač, nezoufej, příště to dáš...')
         quit()
@@ -18,17 +17,20 @@ while bodyHrac <= pocetBodu or bodyPocitac <= pocetBodu:
     volbaHrac = input('Zvol si možnost: ')
     volbaHrac = volbaHrac.lower()
     if volbaHrac == 'kámen' or volbaHrac == 'nůžky' or volbaHrac == 'papír':
-        volbaPocitac = random.choice(moznostiPocitac)
+        volbaPocitac = random.choice(['kámen', 'nůžky', 'papír'])
         print('Počítač vylosoval:', volbaPocitac)
         
         if volbaHrac == 'kámen' and volbaPocitac == 'kámen' or volbaHrac == 'nůžky' and volbaPocitac == 'nůžky' or volbaHrac == 'papír' and volbaPocitac == 'papír':
             print('Plichta. Nikdo nevyhrál, nikdo nemá bod.')
+            print('Skóre ty', bodyHrac, '/', bodyPocitac, 'počítač.\n')
         elif volbaHrac == 'kámen' and volbaPocitac == 'nůžky' or volbaHrac == 'nůžky' and volbaPocitac == 'papír' or volbaHrac == 'papír' and volbaPocitac == 'kámen':
             bodyHrac += 1
-            print('Vyhrál jsi. Máš + 1 bod, celkem máš', bodyHrac, 'body.')
+            print('Vyhrál jsi.')
+            print('Skóre ty', bodyHrac, '/', bodyPocitac, 'počítač.\n')
         else:
             bodyPocitac += 1  
-            print('Prohrál jsi. Počítač má + 1 bod, celkem má', bodyPocitac, 'body.')
+            print('Prohrál jsi.')
+            print('Skóre ty', bodyHrac, '/', bodyPocitac, 'počítač.\n')
 
     else:
-        print('Chyba zadání. Asi ses přepsal... Znovu prosím.')
+        print('Chyba zadání. Asi ses přepsal... Znovu prosím.\n')
